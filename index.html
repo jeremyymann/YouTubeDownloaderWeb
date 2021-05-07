@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>body {
+    background-color: black;
+    }
+
+    .title {
+        color: white;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 50px;
+        position: absolute;
+        text-align: center;
+        top: 10%;
+        left: 50%;
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    .input {
+        color: black;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 25px;
+        position: absolute;
+        text-align: center;
+        top: 30%;
+        left: 50%;
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    .submit {
+        color: black;
+        background-color: white;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 25px;
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+    }
+  </style>
+    <script>
+    function submitURL() {
+    let link = document.getElementById("input").value
+    sendURL(link)
+    console.log(link + " sent to server")
+    }
+
+    window.onkeypress = function(event) {
+      if (event.keyCode == 13) {
+        let link = document.getElementById("input").value
+        sendURL(link)
+        console.log(link + " sent to server")
+      }
+    }
+
+    function sendURL(URL) {
+        window.location.href = `http://localhost:4000/download?URL=${URL}`;
+    }
+  </script>
+    <title>YouTube Downloader</title>
+</head>
+<body>
+    <p class="title">YouTube Downloader</p>
+    <input id="input" class="input" placeholder="put url here"/>
+    <button class="submit" onclick="submitURL()">Submit</button>
+</body>
+</html>
